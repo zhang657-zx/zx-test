@@ -63,7 +63,7 @@
 
 <script>
 import { getCodeImg } from "@/api/login";
-import Cookies from "js-cookie";
+import {getItem, setItem, removeItem} from '@/utils/auth'
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 
 export default {
@@ -118,9 +118,9 @@ export default {
       });
     },
     getCookie() {
-      const username = Cookies.get("username");
-      const password = Cookies.get("password");
-      const rememberMe = Cookies.get('rememberMe')
+      const username = getItem("username");
+      const password = getItem("password");
+      const rememberMe = getItem('rememberMe')
       this.loginForm = {
         username: username === undefined ? this.loginForm.username : username,
         password: password === undefined ? this.loginForm.password : decrypt(password),
@@ -132,13 +132,13 @@ export default {
         if (valid) {
           this.loading = true;
           if (this.loginForm.rememberMe) {
-            Cookies.set("username", this.loginForm.username, { expires: 30 });
-            Cookies.set("password", encrypt(this.loginForm.password), { expires: 30 });
-            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 });
+            setItem("username", this.loginForm.username, { expires: 30 });
+            setItem("password", encrypt(this.loginForm.password), { expires: 30 });
+            setItem('rememberMe', this.loginForm.rememberMe, { expires: 30 });
           } else {
-            Cookies.remove("username");
-            Cookies.remove("password");
-            Cookies.remove('rememberMe');
+            removeItem("username");
+            removeItem("password");
+            removeItem('rememberMe');
           }
           this.$store.dispatch("Login", this.loginForm).then(() => {
             this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
