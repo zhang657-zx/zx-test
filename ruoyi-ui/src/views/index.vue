@@ -213,7 +213,7 @@
                 <li>新增sendGet无参请求方法</li>
                 <li>禁用el-tag组件的渐变动画</li>
                 <li>代码生成点击预览重置激活tab</li>
-                <li>AjaxResult重写put方法，以方便链式调用</li>
+                <li>Result重写put方法，以方便链式调用</li>
                 <li>优化登录/验证码请求headers不设置token</li>
                 <li>优化用户个人信息接口防止修改用户名</li>
                 <li>优化Cron表达式生成器关闭时销毁避免缓存</li>

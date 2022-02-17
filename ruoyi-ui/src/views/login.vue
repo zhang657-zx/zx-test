@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <h3 class="title">后台管理系统</h3>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -54,10 +54,6 @@
         </div>
       </el-form-item>
     </el-form>
-    <!--  底部  -->
-    <div class="el-login-footer">
-      <span>Copyright © 2018-2022 ruoyi.vip All Rights Reserved.</span>
-    </div>
   </div>
 </template>
 
@@ -120,11 +116,11 @@ export default {
     getCookie() {
       const username = getItem("username");
       const password = getItem("password");
-      const rememberMe = getItem('rememberMe')
+      const rememberMe = getItem('rememberMe');
       this.loginForm = {
-        username: username === undefined ? this.loginForm.username : username,
-        password: password === undefined ? this.loginForm.password : decrypt(password),
-        rememberMe: rememberMe === undefined ? false : Boolean(rememberMe)
+        username: username ?? this.loginForm.username,
+        password: password ? decrypt(password) : this.loginForm.password,
+        rememberMe: rememberMe ? false : Boolean(rememberMe)
       };
     },
     handleLogin() {
@@ -156,6 +152,11 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+
+$bg:#283443;
+$light_gray:#fff;
+$cursor: #fff;
+
 .login {
   display: flex;
   justify-content: center;
@@ -167,18 +168,34 @@ export default {
 .title {
   margin: 0px auto 30px auto;
   text-align: center;
-  color: #707070;
+  color: white;
 }
 
 .login-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
-  padding: 25px 25px 5px 25px;
+  position: relative;
+  width: 520px;
+  max-width: 100%;
+  padding: 80px 35px 0;
+  margin: 0 auto;
+  overflow: hidden;
   .el-input {
-    height: 38px;
+    display: inline-block;
+    height: 47px;
+    width: 80%;
     input {
-      height: 38px;
+      border: 0px;
+      -webkit-appearance: none;
+      border-radius: 0px;
+      background: transparent;
+      padding: 3px 5px 12px 28px;
+      color: $light_gray;
+      height: 47px;
+      caret-color: $cursor;
+
+      &:-webkit-autofill {
+        box-shadow: 0 0 0px 1000px $bg inset !important;
+        -webkit-text-fill-color: $cursor !important;
+      }
     }
   }
   .input-icon {
@@ -216,4 +233,11 @@ export default {
 .login-code-img {
   height: 38px;
 }
+
+.el-form-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: #454545;
+  }
 </style>

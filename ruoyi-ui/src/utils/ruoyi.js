@@ -68,7 +68,7 @@ export function addDateRange(params, dateRange, propName) {
   return search;
 }
 
-// 回显数据字典 
+// 回显数据字典
 export function selectDictLabel(datas, value) {
   var actions = [];
   Object.keys(datas).some((key) => {
@@ -210,6 +210,7 @@ export function tansParams(params) {
       }
     }
   }
+  result = result.slice(0, -1)
   return result
 }
 

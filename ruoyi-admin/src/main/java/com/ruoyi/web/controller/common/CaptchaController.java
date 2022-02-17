@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.code.kaptcha.Producer;
 import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.domain.Result;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.utils.sign.Base64;
 import com.ruoyi.common.utils.uuid.IdUtils;
@@ -24,7 +24,7 @@ import com.ruoyi.system.service.ISysConfigService;
  * 
  * @author ruoyi
  */
-//@RestController
+@RestController
 public class CaptchaController
 {
     @Resource(name = "captchaProducer")
@@ -42,9 +42,9 @@ public class CaptchaController
      * 生成验证码
      */
     @GetMapping("/captchaImage")
-    public AjaxResult getCode(HttpServletResponse response) throws IOException
+    public Result getCode(HttpServletResponse response) throws IOException
     {
-        AjaxResult ajax = AjaxResult.success();
+        Result ajax = Result.success();
         boolean captchaOnOff = configService.selectCaptchaOnOff();
         ajax.put("captchaOnOff", captchaOnOff);
         if (!captchaOnOff)
@@ -83,7 +83,7 @@ public class CaptchaController
         }
         catch (IOException e)
         {
-            return AjaxResult.error(e.getMessage());
+            return Result.error(e.getMessage());
         }
 
         ajax.put("uuid", uuid);
