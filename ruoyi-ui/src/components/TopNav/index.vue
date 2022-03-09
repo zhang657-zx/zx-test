@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { constantRoutes } from "@/router";
+import { constantRoutes, customRoutes } from "@/router";
 
 export default {
   data() {
