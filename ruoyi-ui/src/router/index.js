@@ -162,6 +162,33 @@ export const customRoutes = [
         path: 'dbIndex',
         component: () => import('@/views/target/dbIndex'),
         meta: { title: '数据库表创建指标'}
+      },
+      {
+        name: 'ComplexTarget',
+        path: 'complexTarget',
+        component: () => import('@/views/target/complexTarget'),
+        meta: { title: '创建复合指标'}
+      }
+    ]
+  },
+  {
+    name: 'TargetMenu',
+    path: '/targetMenu',
+    component: Layout,
+    redirect:'noRedirect',
+    meta:{title:'指标目录管理',icon:'user'},
+    children: [
+      {
+        path:'index',
+        name:'TargetMenuIndex',
+        component: () => import('@/views/target/targetMenu/index'),
+        meta:{title:'指标目录维护'}
+      },
+      {
+        path:'dimension',
+        name:'Dimension',
+        component: () => import('@/views/target/targetMenu/dimension'),
+        meta:{title:'维度表配置'}
       }
     ]
   }
