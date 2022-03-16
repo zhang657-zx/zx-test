@@ -20,8 +20,8 @@
             <el-row :gutter="28">
                 <el-col :span="24">
                   <el-form :model="searchForm" :inline="true" class="demo-form-inline" label-width="68px">
-                    <el-form-item label="指标名称" :prop="searchForm.targetName">
-                      <el-input v-model="searchForm.targetName" placeholder="请输入指标名称" clearable size="small"></el-input>
+                    <el-form-item label="指标名称" :prop="searchForm.zbmc">
+                      <el-input v-model="searchForm.zbmc" placeholder="请输入指标名称" clearable size="small"></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button plain type="primary" size="mini" icon="el-icon-search" @click="search">查询</el-button>
@@ -120,7 +120,7 @@ export default {
   data() {
     return {
       searchForm: {
-        targetName: '',
+        zbmc: '',
         sjzbid:'',
         sjzbmc:'',
         currentPage:1,

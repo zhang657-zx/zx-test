@@ -198,5 +198,5 @@ export const customRoutes = [
 export default new Router({
   // mode: 'history', // 去掉url中的#
   scrollBehavior: () => ({ y: 0 }),
-  routes: [...constantRoutes, ...customRoutes]
+  routes: constantRoutes
 })
