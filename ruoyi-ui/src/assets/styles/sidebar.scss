@@ -105,11 +105,11 @@
 
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: 70px !important;
     }
 
     .main-container {
-      margin-left: 54px;
+      margin-left: 70px;
     }
 
     .submenu-title-noDropdown {
@@ -120,7 +120,9 @@
         padding: 0 !important;
 
         .svg-icon {
-          margin-left: 20px;
+          margin-left: 27px;
+          width: 18px;
+          height: 18px;
         }
       }
     }
@@ -132,7 +134,9 @@
         padding: 0 !important;
 
         .svg-icon {
-          margin-left: 20px;
+          margin-left: 27px;
+          width: 18px;
+          height: 18px;
         }
 
       }
