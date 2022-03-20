@@ -1,45 +1,41 @@
 let data = {
     code: 200,
     message: 'success',
-    data: {
-      total: 100,
-      'row|10': [{
-        pkid: '@uuid',	
-        gxzq: '',	
-        jsgs: '',	
-        ywms: '',	
-        yxbz: '',	
-        sjzbid: '',	
-        zblx: '',	
-        zbmc: '@cname',
-        zbbm: '@cname',
-        sjzbmc: '',	
-        cjry: '@cname',
-        cjrymc: '@cname',	
-        cjsj: '@date',
-        xgry: '@cname',
-        xgrymc: '@cname',
-        xgsj: '@date',
-      }]
-    }
+    total: 100,
+    'rows|10': [{
+      pkid: '@uuid',	
+      gxzq: '',	
+      jsgs: '',	
+      ywms: '',	
+      yxbz: '',	
+      sjzbid: '',	
+      zblx: '',	
+      zbmc: '@cname',
+      zbbm: '@cname',
+      sjzbmc: '',	
+      cjry: '@cname',
+      cjrymc: '@cname',	
+      cjsj: '@date',
+      xgry: '@cname',
+      xgrymc: '@cname',
+      xgsj: '@date',
+    }]
   },
   treeData = {
     code: 200,
     message: 'success',
-    data: {
-      'row|10': [{
+    'rows|10': [{
+      'label|1': '@string',
+      'pkid|+1': 1,
+      children: [{
         'label|1': '@string',
-        'pkid|+1': 1,
+        'pkid|+1': 20,
         children: [{
           'label|1': '@string',
-          'pkid|+1': 20,
-          children: [{
-            'label|1': '@string',
-            'pkid|+1': 30,
-          }]
+          'pkid|+1': 30,
         }]
       }]
-    }
+    }]
   },
   saveData = {
     code: 200,

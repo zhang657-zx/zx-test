@@ -1,22 +1,23 @@
 import request from '@/utils/request'
 
-export const getList = ({targetName,currentPage, pageSize}) => {
+export const getList = (data) => {
   return request({
     url: '/zbml/queryList',
     method: 'post',
-    data: {
-      targetName, 
-      currentPage, 
-      pageSize
-    }
+    data
   })
 }
 
 //获取左侧树数据接口--暂无接口文档
 export const getTreeList = () => {
   return request({
-    url:'/zbml/queryTreeList',
-    method:'post',
+    url: '/zbml/queryList',
+    method: 'post',
+    data: {
+      zblx: 'ML',
+      pageSize: 10000,
+      pageNum: 1
+    }
   })
 }
 
